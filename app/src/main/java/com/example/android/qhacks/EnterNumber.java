@@ -12,7 +12,8 @@ import android.widget.Toast;
 
 public class EnterNumber extends AppCompatActivity {
 
-    EditText phoneNumber;
+    EditText phoneNumber; // User input box
+    String FullPhoneNumber; // Stores the inputted number
 
     private ImageButton enterNumberStored;
     @Override
@@ -20,26 +21,20 @@ public class EnterNumber extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_number);
 
-        phoneNumber = (EditText)findViewById(R.id.enter_number_edittext);
-         //String finalNumber = phoneNumber.getText().toString();
+        phoneNumber = findViewById(R.id.enter_number_edittext); // Input textbox for number
 
-
-        enterNumberStored =  findViewById(R.id.enterButtonSmallXML);
+        enterNumberStored =  findViewById(R.id.enterButtonSmallXML); // Submits the number and proceeds to next page
 
 
         enterNumberStored.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Start your second activity
+
+               FullPhoneNumber  = phoneNumber.getText().toString();
 
                 Log.v("MYINT",  phoneNumber.getText().toString());
+
                 Intent intent = new Intent(EnterNumber.this, Reminders.class);
-
-                //Log.d("MYINT", "Final Number:" + finalNumber);
-                   //Toast.makeText(EnterNumber.this, finalNumber, Toast.LENGTH_LONG).show();
-
-
-
 
                 startActivity(intent);
             }
